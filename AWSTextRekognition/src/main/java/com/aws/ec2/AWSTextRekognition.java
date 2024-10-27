@@ -104,17 +104,17 @@ public class AWSTextRekognition {
                 // Get the wrapped client
                 AmazonSQSMessagingClientWrapper client = connection.getWrappedAmazonSQSClient();
 
-                if (!client.queueExists("sqsforcarimage")) {
+                if (!client.queueExists("ImageReconitionQueue.fifo")) {
                     Map<String, String> attributes = new HashMap<String, String>();
                     attributes.put("FifoQueue", "true");
                     attributes.put("ContentBasedDeduplication", "true");
                     client.createQueue(
-                            new CreateQueueRequest().withQueueName("sqsforcarimage").withAttributes(attributes));
+                            new CreateQueueRequest().withQueueName("ImageReconitionQueue.fifo").withAttributes(attributes));
                 }
 
                 Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
                 // Create a queue identity and specify the queue name to the session
-                Queue queue = session.createQueue("sqsforcarimage");
+                Queue queue = session.createQueue("ImageReconitionQueue.fifo");
 
                 // Create a consumer for the 'MyQueue'.
                 MessageConsumer consumer = session.createConsumer(queue);
@@ -137,12 +137,12 @@ public class AWSTextRekognition {
                 // Get the wrapped client
                 AmazonSQSMessagingClientWrapper client = connection.getWrappedAmazonSQSClient();
 
-                if (!client.queueExists("sqsforcarimage")) {
+                if (!client.queueExists("ImageReconitionQueue.fifo")) {
                     Map<String, String> attributes = new HashMap<String, String>();
                     attributes.put("FifoQueue", "true");
                     attributes.put("ContentBasedDeduplication", "true");
                     client.createQueue(
-                            new CreateQueueRequest().withQueueName("sqsforcarimage").withAttributes(attributes));
+                            new CreateQueueRequest().withQueueName("ImageReconitionQueue.fifo").withAttributes(attributes));
                     Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
                     // Create a queue identity and specify the queue name to the session
                     Queue queue = session.createQueue("MyQueue.fifo");

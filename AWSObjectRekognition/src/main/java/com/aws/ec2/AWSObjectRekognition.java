@@ -47,7 +47,7 @@ public class AWSObjectRekognition {
     public static void main(String[] args) throws IOException, JMSException {
         SpringApplication.run(AWSObjectRekognition.class, args);
         String bucketName = "njit-cs-643";
-        String queueUrl = "https://sqs.us-east-1.amazonaws.com/323052225972/sqsforcarimage";
+        String queueUrl = "https://sqs.us-east-1.amazonaws.com/848063760789/ImageReconitionQueue.fifo";
 
         try {
             // Initialize the S3 client
