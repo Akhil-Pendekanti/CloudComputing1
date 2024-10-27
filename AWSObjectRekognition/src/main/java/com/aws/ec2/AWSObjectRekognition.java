@@ -42,7 +42,7 @@ public class AWSObjectRekognition
                 .build();
 
 
-        String sqsQueueUrl = "https://sqs.us-east-1.amazonaws.com/650382363291/ImageRecognitionQueue";
+        String sqsQueueUrl = "https://sqs.us-east-1.amazonaws.com/848063760789/ImageReconitionQueue.fifo";
 
         String bucketName = "njit-cs-643";
 
